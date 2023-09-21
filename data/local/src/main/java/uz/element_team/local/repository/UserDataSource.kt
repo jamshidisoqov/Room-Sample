@@ -1,5 +1,6 @@
 package uz.element_team.local.repository
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +21,7 @@ class UserDataSource(private val userDao: UserDao) : PagingSource<Int, UserEntit
             val page = params.key ?: DEFAULT_PAGE
             withContext(Dispatchers.IO) {
                 val users = userDao.getUserByPage(PAGE_SIZE, (page - 1) * PAGE_SIZE)
+                Log.d("tttb", "data:$users")
                 LoadResult.Page(
                     data = users,
                     prevKey = if (page == DEFAULT_PAGE) null else page - 1,
