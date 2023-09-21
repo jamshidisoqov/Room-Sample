@@ -45,9 +45,10 @@ dependencies {
     implementation(project(mapOf("path" to ":data:models")))
 
     implementation(libs.androidx.room.room.runtime)
-    annotationProcessor(libs.androidx.room.room.compiler)
+    kapt(libs.androidx.room.room.compiler)
+    implementation("androidx.room:room-ktx:2.5.2")
     implementation(libs.com.google.dagger.hilt.android)
-    annotationProcessor(libs.com.google.dagger.hilt.android.compiler)
+    kapt(libs.com.google.dagger.hilt.android.compiler)
 
     implementation(libs.androidx.paging.paging.runtime)
 }

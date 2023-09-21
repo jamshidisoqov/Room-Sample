@@ -7,16 +7,16 @@ import androidx.room.Query
 import uz.element_team.models.local.user.UserEntity
 
 @Dao
-interface UserDao {
+abstract class UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(userEntity: UserEntity)
+    abstract fun insertUser(userEntity: UserEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUsers(list: List<UserEntity>)
+    abstract fun insertUsers(list: List<UserEntity>)
 
     @Query("select * from users limit :size offset :skipSize")
-    suspend fun getUserByPage(
+    abstract fun getUserByPage(
         size: Int, skipSize: Int
     ): List<UserEntity>
 }

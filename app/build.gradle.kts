@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("kotlin-kapt")
 }
 
 android {
@@ -74,6 +75,7 @@ dependencies {
 
     implementation(libs.com.google.dagger.hilt.android.compiler)
     implementation(libs.com.google.dagger.hilt.android)
+    kapt(libs.com.google.dagger.hilt.android.compiler)
     implementation(libs.androidx.paging.paging.runtime)
     implementation(libs.androidx.paging.paging.compose)
 
